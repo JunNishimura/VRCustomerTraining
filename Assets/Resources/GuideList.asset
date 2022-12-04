@@ -546,11 +546,11 @@ MonoBehaviour:
       voice: 
       voice_content: 
     - id: 18
-      guide: 
+      guide: "\u304A\u5BA2\u69D8\u306E\u8A71\u3092\u805E\u304D\u307E\u3057\u3087\u3046\u3002"
       voice: 
       voice_content: 
     - id: 19
-      guide: 
+      guide: "\u8B1D\u7F6A\u3057\u3066\u3001\u5F8C\u307B\u3069\u6CE8\u610F\u3057\u3066\u304A\u304F\u3088\u3046\u4F1D\u3048\u307E\u3057\u3087\u3046"
       voice: 
       voice_content: 
     - id: 20
