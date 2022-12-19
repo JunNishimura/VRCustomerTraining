@@ -283,50 +283,59 @@ public class TestScenario1Controller : MonoBehaviour
                     if (OVRInput.GetDown(OVRInput.RawButton.A))
                     {
                         ABbuttonUpdate(false); // Bボタン表示
-                        switch (_dialogueProgressList[3])
+                        if (!FlagManager.Instance.flags[2])
                         {
-                            case 0:
-                                _animators[2].SetBool("updown", false); // 手を下げる
+                            // 声掛け
+                            // 音声「はい」
+                            AudioManager.Instance.PlayVoice("yes_woman");
+                        }
+                        else
+                        {
+                            switch (_dialogueProgressList[3])
+                            {
+                                case 0:
+                                    _animators[2].SetBool("updown", false); // 手を下げる
 
-                                // 音声「注文いいでしょうか」
-                                AudioManager.Instance.PlayVoice("order_ok_woman");
+                                    // 音声「注文いいでしょうか」
+                                    AudioManager.Instance.PlayVoice("order_ok_woman");
 
-                                _dialogueProgressList[3] += 1; // 会話の進行
+                                    _dialogueProgressList[3] += 1; // 会話の進行
 
-                                break;
-                            case 1:
-                                AudioManager.Instance.PlayVoice("pancake_woman"); // 音声。「パンケーキ」
+                                    break;
+                                case 1:
+                                    AudioManager.Instance.PlayVoice("pancake_woman"); // 音声。「パンケーキ」
 
-                                _dialogueProgressList[3] += 1; // 会話の進行
+                                    _dialogueProgressList[3] += 1; // 会話の進行
 
-                                break;
-                            case 2:
-                                // 音声「はい」
-                                AudioManager.Instance.PlayVoice("yes_woman");
+                                    break;
+                                case 2:
+                                    // 音声「はい」
+                                    AudioManager.Instance.PlayVoice("yes_woman");
 
-                                FlagManager.Instance.flags[3] = true;
+                                    FlagManager.Instance.flags[3] = true;
 
-                                // 終了時間の格納
-                                _taskFinishedTimeList.Add(_elapsedTime);
+                                    // 終了時間の格納
+                                    _taskFinishedTimeList.Add(_elapsedTime);
 
-                                // 終了順序の格納
-                                _taskFinishedList.Add("3番テーブル注文");
+                                    // 終了順序の格納
+                                    _taskFinishedList.Add("3番テーブル注文");
 
-                                // 1番テーブル入店が終わっていたら次のタスク開始
-                                if (FlagManager.Instance.flags[2])
-                                {
-                                    // オーダーパネルの更新
-                                    UIManager.Instance.ordertable.text += "4番：ピザ\n";
-                                    // 「ピザ」の表示
-                                    _foods[1].SetActive(true);
+                                    // 1番テーブル入店が終わっていたら次のタスク開始
+                                    if (FlagManager.Instance.flags[2])
+                                    {
+                                        // オーダーパネルの更新
+                                        UIManager.Instance.ordertable.text += "4番：ピザ\n";
+                                        // 「ピザ」の表示
+                                        _foods[1].SetActive(true);
 
-                                    // 1番テーブルの空き皿表示
-                                    _emptyPlates[0].SetActive(true);
-                                }
+                                        // 1番テーブルの空き皿表示
+                                        _emptyPlates[0].SetActive(true);
+                                    }
 
-                                break;
-                            default:
-                                break;
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
                         // 音声認識オフ
                         Speech_Recognition_Manager.rec_complete = false;

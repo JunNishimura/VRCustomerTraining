@@ -554,11 +554,11 @@ MonoBehaviour:
       voice: 
       voice_content: 
     - id: 20
-      guide: 
+      guide: "\u5F85\u305F\u305B\u308B\u304A\u5BA2\u306B\u58F0\u639B\u3051\u3092\u3057\u307E\u3057\u3087\u3046\u3002"
       voice: 
       voice_content: 
     - id: 21
-      guide: 
+      guide: "\u512A\u5148\u5EA6\u306E\u9AD8\u3044\u30BF\u30B9\u30AF\u3092\u5148\u306B\u3053\u306A\u3057\u307E\u3057\u3087\u3046\u3002"
       voice: 
       voice_content: 
     - id: 22
